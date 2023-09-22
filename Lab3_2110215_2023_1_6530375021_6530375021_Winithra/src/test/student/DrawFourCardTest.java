@@ -120,6 +120,7 @@ public class DrawFourCardTest {
         // +4 +4 +4 +4
         // TODO Implement here
         NumberCard c6 = new NumberCard(CardColor.BLUE,CardSymbol.EIGHT);
+        DrawFourCard c7 = new DrawFourCard();
 
         GameLogic gameInstance = GameLogic.getInstance(4);
         for (int i=0; i<16; i++)
@@ -131,7 +132,7 @@ public class DrawFourCardTest {
         gameInstance.getPlayerHand(2).add(c4);
         gameInstance.getPlayerHand(3).add(c5);
 
-        String message = c1.performEffect();
+        String message = c7.performEffect();
 
         assertEquals("Set color to YELLOW\n" +
                 "Player 1 played DRAW FOUR. 1 cards remaining.\n" +

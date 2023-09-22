@@ -28,8 +28,7 @@ public class SkipCard extends EffectCard{
         GameLogic instance = GameLogic.getInstance();
         instance.goToNextPlayer();
         while(instance.getCurrentPlayerHand().isEmpty()) instance.goToNextPlayer();
-        int cp = instance.getCurrentPlayer();
-        return "Skipped player "+cp+"\n";
+        return "Skipped player "+instance.getCurrentPlayer();
     }
 
 

@@ -85,7 +85,7 @@ public class ChangeColorCardTest {
         // TODO Implement here
         ArrayList<BaseCard> abc = GameLogic.getInstance().getCurrentPlayerHand();
         abc.add(c3); c1.performEffect();
-        assertEquals(CardColor.RED,c3.getColor());
+        assertEquals(CardColor.RED,c1.getColor());
     }
 
     @Test

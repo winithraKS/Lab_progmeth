@@ -144,6 +144,7 @@ public class DrawTwoCardTest {
     void testPlay() {
         // +2 +2 +2 +4
         // TODO Implement here
+        DrawTwoCard c7 = new DrawTwoCard(CardColor.GREEN);
         GameLogic gameInstance = GameLogic.getInstance(4);
         for (int i=0; i<10; i++)
             gameInstance.getDeck().add(new NumberCard(CardColor.randomColor(), CardSymbol.randomSymbol()));
@@ -152,7 +153,7 @@ public class DrawTwoCardTest {
         gameInstance.getPlayerHand(2).add(c4);
         gameInstance.getPlayerHand(3).add(c6);
 
-        String message = c1.performEffect();
+        String message = c7.performEffect();
 
         assertEquals("Player 1 played GREEN DRAW TWO. 0 cards remaining.\n" +
                 "Player 2 played RED DRAW TWO. 0 cards remaining.\n" +

@@ -26,7 +26,7 @@ public class ReverseCard extends EffectCard{
     public String performEffect(){
         PlayDirection pd = GameLogic.getInstance().getPlayDirection();
         GameLogic.getInstance().setPlayDirection(pd.getOpposite());
-        return "Set direction to "+GameLogic.getInstance().getPlayDirection().toString()+"\n";
+        return "Set direction to "+GameLogic.getInstance().getPlayDirection().toString();
     }
 
 

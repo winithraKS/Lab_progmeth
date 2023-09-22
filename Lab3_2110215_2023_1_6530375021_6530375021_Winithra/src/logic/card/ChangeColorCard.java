@@ -16,7 +16,7 @@ public class ChangeColorCard extends EffectCard{
     @Override
     public String toString() {
         if(getColor()==null) return "CHANGE COLOR";
-        return "CHANGE COLOR (" + getColor()+" color selected).";
+        return "CHANGE COLOR (" + getColor()+" color selected)";
     }
 
     @Override
@@ -29,6 +29,6 @@ public class ChangeColorCard extends EffectCard{
         GameLogic instance = GameLogic.getInstance();
         ArrayList<BaseCard> abc = instance.getCurrentPlayerHand();
         setColor((abc.isEmpty() || abc.get(0).getColor() == null) ? CardColor.RED:abc.get(0).getColor());
-        return "Set color to "+getColor()+"\n";
+        return "Set color to "+getColor();
     }
 }

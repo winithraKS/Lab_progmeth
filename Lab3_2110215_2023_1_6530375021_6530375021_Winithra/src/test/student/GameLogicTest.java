@@ -62,13 +62,25 @@ public class GameLogicTest {
     @Test
     void testDrawLessThanDeck() {
         // TODO Implement here
-
-
+        GameLogic gameInstance = GameLogic.getInstance(4);
+        for (int i=0; i<16; i++)
+            gameInstance.getDeck().add(new NumberCard(CardColor.randomColor(), CardSymbol.randomSymbol()));
+        gameInstance.draw(4);
+        assertEquals(4,gameInstance.getCurrentPlayerHand().size());
+        gameInstance.goToNextPlayer();
+        gameInstance.getPlayerHand(1).add(c2);
+        gameInstance.draw(8);
+        assertEquals(9,gameInstance.getCurrentPlayerHand().size());
     }
 
     @Test
     void testDrawMoreThanDeck() {
         // TODO Implement here
+        GameLogic gameInstance = GameLogic.getInstance(4);
+        for (int i=0; i<16; i++)
+            gameInstance.getDeck().add(new NumberCard(CardColor.randomColor(), CardSymbol.randomSymbol()));
+        gameInstance.draw(21);
+        assertEquals(16,gameInstance.getCurrentPlayerHand().size());
 
 
     }
