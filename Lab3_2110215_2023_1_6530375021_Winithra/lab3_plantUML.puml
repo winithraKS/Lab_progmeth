@@ -1,0 +1,135 @@
+@startuml
+abstract class logic.card.BaseCard {
+- CardColor color
+- CardSymbol symbol
++ <<Create>> BaseCard(CardColor,CardSymbol)
++ CardColor getColor()
++ void setColor(CardColor)
++ CardSymbol getSymbol()
++ void setSymbol(CardSymbol)
++ {abstract}String toString()
++ {abstract}boolean canPlay()
++ {abstract}String play()
+}
+class logic.card.DrawTwoCard {
++ <<Create>> DrawTwoCard(CardColor)
++ String toString()
++ boolean canPlay()
++ String performEffect()
+}
+class logic.card.DrawFourCard {
++ <<Create>> DrawFourCard()
++ String toString()
++ boolean canPlay()
++ String performEffect()
+}
+class logic.card.NumberCard {
++ <<Create>> NumberCard(CardColor,CardSymbol)
++ String toString()
++ boolean canPlay()
++ String play()
+}
+class logic.game.GameLogic {
+- int initialPlayerCount
+- ArrayList<BaseCard> deck
+- ArrayList<ArrayList<BaseCard>> playerHands
+- int currentPlayer
+- PlayDirection playDirection
+- int drawAmount
+- BaseCard topCard
+- {static} GameLogic instance
+- <<Create>> GameLogic(int)
++ {static} GameLogic getInstance()
++ {static} GameLogic getInstance(int)
++ {static} void clearInstance()
++ void initGame()
++ boolean isHandPlayable(int)
++ ArrayList<BaseCard> draw(int)
++ boolean isGameOver()
++ int getPlayerCount()
++ ArrayList<BaseCard> getDeck()
++ ArrayList<BaseCard> getPlayerHand(int)
++ ArrayList<ArrayList<BaseCard>> getAllPlayerHands()
++ int getCurrentPlayer()
++ ArrayList<BaseCard> getCurrentPlayerHand()
++ void goToNextPlayer()
++ int getInitialPlayerCount()
++ PlayDirection getPlayDirection()
++ void setPlayDirection(PlayDirection)
++ int getDrawAmount()
++ void setDrawAmount(int)
++ void incrementDrawAmount(int)
++ BaseCard getTopCard()
++ void setTopCard(BaseCard)
+}
+enum logic.game.CardSymbol {
++  ZERO
++  ONE
++  TWO
++  THREE
++  FOUR
++  FIVE
++  SIX
++  SEVEN
++  EIGHT
++  NINE
++  SKIP
++  REVERSE
++  CHANGE_COLOR
++  DRAW_TWO
++  DRAW_FOUR
+- {static} Random RNG
++ {static} CardSymbol randomSymbol()
++ {static} ArrayList<CardSymbol> getNumberSymbols()
++ String toString()
+}
+enum logic.game.CardColor {
++  RED
++  YELLOW
++  GREEN
++  BLUE
+- {static} Random RNG
++ {static} CardColor randomColor()
++ String toString()
+}
+enum logic.game.PlayDirection {
++  FORWARD
++  BACKWARD
++ PlayDirection getOpposite()
++ String toString()
+}
+class logic.card.ReverseCard {
++ <<Create>> ReverseCard(CardColor)
++ String toString()
++ boolean canPlay()
++ String performEffect()
+}
+class logic.card.SkipCard {
++ <<Create>> SkipCard(CardColor)
++ String toString()
++ boolean canPlay()
++ String performEffect()
+}
+class logic.card.ChangeColorCard {
++ <<Create>> ChangeColorCard()
++ String toString()
++ boolean canPlay()
++ String performEffect()
+}
+abstract class logic.card.EffectCard {
++ <<Create>> EffectCard(CardColor,CardSymbol)
++ {abstract}String toString()
++ {abstract}boolean canPlay()
++ String play()
++ {abstract}String performEffect()
+}
+
+
+logic.card.EffectCard <|-- logic.card.DrawTwoCard
+logic.card.EffectCard <|-- logic.card.DrawFourCard
+logic.card.BaseCard <|-- logic.card.NumberCard
+logic.card.EffectCard <|-- logic.card.ReverseCard
+logic.card.EffectCard <|-- logic.card.SkipCard
+logic.card.EffectCard <|-- logic.card.ChangeColorCard
+logic.card.BaseCard <|-- logic.card.EffectCard
+@enduml

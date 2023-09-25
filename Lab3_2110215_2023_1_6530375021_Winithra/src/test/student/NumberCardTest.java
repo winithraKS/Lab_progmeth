@@ -1,6 +1,5 @@
 package test.student;
 
-import logic.card.BaseCard;
 import logic.card.NumberCard;
 import logic.game.CardSymbol;
 import logic.game.CardColor;
@@ -8,8 +7,6 @@ import logic.game.GameLogic;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -1,6 +1,5 @@
 package test.student;
 
-import logic.card.BaseCard;
 import logic.card.NumberCard;
 import logic.card.ReverseCard;
 import logic.game.CardColor;
